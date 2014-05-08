@@ -25,8 +25,8 @@
     _arr_images = [[NSArray alloc] initWithObjects:@"image_1.jpg", @"image_2.jpg", @"image_3.jpg", nil];
     
     self.motionManager = [[CMMotionManager alloc] init];
-    self.motionManager.accelerometerUpdateInterval = .2;
-    self.motionManager.gyroUpdateInterval = .2;
+    self.motionManager.accelerometerUpdateInterval = 0.0;
+    self.motionManager.gyroUpdateInterval = 0.0;
     
     [self initScrollView];
     [self initControlBtns];
@@ -109,40 +109,31 @@
 -(void)changeScrollViewOffset1:(CMAcceleration)acceleration {
     CGPoint offset = _uis_imageContainer.contentOffset;
     NSLog(@"%f",acceleration.y);
-//    if (fabs(acceleration.x) > 0.3) {
-        offset.x = offset.x+acceleration.y*100;
+
+    offset.x = offset.x+acceleration.y*5;
         
-        if (offset.x < 0) {
-            offset.x = 0;
-        }
-        if (offset.x > 2048) {
-            offset.x = 2048;
-        }
-        [_uis_imageContainer setContentOffset:offset];
-//    }
-    
-//    else{
-//        return;
-//    }
+    if (offset.x < 0) {
+        offset.x = 0;
+    }
+    if (offset.x > 2048) {
+        offset.x = 2048;
+    }
+    [_uis_imageContainer setContentOffset:offset];
 }
 -(void)changeScrollViewOffset2:(CMRotationRate)rotation {
-//    CGPoint offset = _uis_imageContainer.contentOffset;
-//    NSLog(@"%f",rotation.x);
-//    if (fabs(rotation.x) > 0.8) {
-//        offset.x = offset.x+rotation.x*100;
-//        
-//        if (offset.x < 0) {
-//            offset.x = 0;
-//        }
-//        if (offset.x > 2048) {
-//            offset.x = 2048;
-//        }
-//        [_uis_imageContainer setContentOffset:offset];
-//    }
-//    
-//    else{
-//        return;
-//    }
+    CGPoint offset = _uis_imageContainer.contentOffset;
+    NSLog(@"%f",rotation.x);
+    
+    offset.x = offset.x+rotation.x*5;
+        
+    if (offset.x < 0) {
+        offset.x = 0;
+    }
+    if (offset.x > 2048) {
+        offset.x = 2048;
+    }
+    
+    [_uis_imageContainer setContentOffset:offset];
 }
 - (void)didReceiveMemoryWarning
 {
