@@ -160,7 +160,10 @@ static float fontSize_3 = 38.0;
             uiv_smallDots.frame = CGRectMake(savedCenter.x - radius_Value, savedCenter.y - kBigDotSize/2 - 2 * radius_Value - space_Value - (space_Value + dotSize.height)*i, dotSize.width, dotSize.height);
             CGPoint smallCenter = uiv_smallDots.center;
             uiv_smallDots.layer.cornerRadius = radius_Value;
+            
+            //Uncommand following line to get a perfect circle
 //            uiv_smallDots.layer.shouldRasterize = YES;
+            
             uiv_smallDots.center = smallCenter;
             [self addSubview:uiv_smallDots];
         }
@@ -186,7 +189,10 @@ static float fontSize_3 = 38.0;
             uiv_smallDots.frame = CGRectMake(savedCenter.x - radius_Value, savedCenter.y + kBigDotSize/2 + space_Value + (space_Value + dotSize.height)*i, dotSize.width, dotSize.height);
             CGPoint smallCenter = uiv_smallDots.center;
             uiv_smallDots.layer.cornerRadius = radius_Value;
+            
+            //Uncommand following line to get a perfect circle
 //            uiv_smallDots.layer.shouldRasterize = YES;
+            
             uiv_smallDots.center = smallCenter;
             [self addSubview:uiv_smallDots];
         }

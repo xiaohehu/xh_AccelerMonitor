@@ -17,5 +17,7 @@
 
 @property (strong, nonatomic) CMMotionManager   *motionManager;
 @property (nonatomic,strong)  UIScrollView      *uis_panoramic;
+
+
 - (id)initWithFrame:(CGRect)frame andImageName:(NSString *)imageName;
 @end

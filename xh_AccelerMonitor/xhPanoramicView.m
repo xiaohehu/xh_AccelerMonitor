@@ -83,7 +83,6 @@
 }
 -(void)stopMotionManager {
     [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-        //        [self changeScrollViewOffset1:accelerometerData.acceleration];
         nil;
         if (error) {
             NSLog(@"%@",error);
@@ -91,7 +90,6 @@
     }];
     
     [self.motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData *gyrodata, NSError *error){
-        //        [self changeScrollViewOffset2:gyrodata.rotationRate];
         nil;
     }];
     
